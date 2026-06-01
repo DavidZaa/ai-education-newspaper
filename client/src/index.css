@@ -103,3 +103,25 @@ a {
 .sources-box li {
   margin-bottom: 10px;
 }
+
+.generated-article {
+  background: #fffdf5;
+  border: 2px solid #222;
+  padding: 26px;
+  margin-bottom: 28px;
+  border-radius: 8px;
+}
+
+.generated-article h2 {
+  font-size: 30px;
+  margin: 8px 0 16px;
+}
+
+.generated-article p {
+  line-height: 1.7;
+  font-size: 17px;
+}
+
+.generated-article ul {
+  line-height: 1.7;
+}

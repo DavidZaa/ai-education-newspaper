@@ -95,6 +95,21 @@ function App() {
             <p>{newspaper.editorNote}</p>
           </section>
 
+          {newspaper.generatedLeadArticle && (
+  <section className="generated-article">
+    <p className="meta">{newspaper.generatedLeadArticle.author}</p>
+    <h2>{newspaper.generatedLeadArticle.title}</h2>
+    <p>{newspaper.generatedLeadArticle.body}</p>
+
+    <h3>Key Themes</h3>
+    <ul>
+      {newspaper.generatedLeadArticle.keyThemes.map((theme) => (
+        <li key={theme}>{theme}</li>
+      ))}
+    </ul>
+  </section>
+)}
+
           {newspaper.sections.map((section) => (
             <section className="newspaper-section" key={section.name}>
               <h2>{section.name}</h2>

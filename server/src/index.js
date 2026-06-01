@@ -70,12 +70,27 @@ app.get("/api/newspaper", async (req, res) => {
       allArticles.push(...articles);
     }
 
+
+
     const topArticles = allArticles.slice(0, 6);
 
     const newspaper = {
       title: "AI Education Daily",
       date: new Date().toLocaleDateString(),
       headline: topArticles[0]?.title || "Today's Education News",
+      generatedLeadArticle: {
+    title: "Today’s Education Briefing",
+    author: "AI Education Desk",
+    body: `
+PLACEHOLDER PLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDERPLACEHOLDER
+    `,
+    keyThemes: [
+      "Education policy and school system change",
+      "Technology and AI in learning",
+      "Higher education adaptation",
+      "Student outcomes and equity"
+    ]
+  },
       editorNote:
         "This AI-generated education newspaper summarizes major education stories from selected public sources. It is a prototype and should be checked against original sources.",
       sections: [
@@ -88,12 +103,15 @@ app.get("/api/newspaper", async (req, res) => {
           stories: topArticles.slice(3, 6),
         },
       ],
+      
       sourcesUsed: topArticles.map((article) => ({
         title: article.title,
         source: article.source,
         link: article.link,
       })),
     };
+
+    
 
     res.json(newspaper);
   } catch (error) {
